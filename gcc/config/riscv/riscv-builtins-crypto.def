@@ -1,7 +1,4 @@
-/* Definitions of prototypes for RISC-V built-in functions.  -*- C -*-
-   Copyright (C) 2011-2020 Free Software Foundation, Inc.
-   Contributed by Andrew Waterman (andrew@sifive.com).
-   Based on MIPS target for GNU compiler.
+/* Builtin definitions for K extension
 
 This file is part of GCC.
 
@@ -19,13 +16,13 @@ You should have received a copy of the GNU General Public License
 along with GCC; see the file COPYING3.  If not see
 <http://www.gnu.org/licenses/>.  */
 
-/* Invoke DEF_RISCV_FTYPE (NARGS, LIST) for each prototype used by
-   RISCV built-in functions, where:
 
-      NARGS is the number of arguments.
-      LIST contains the return-type code followed by the codes for each
-        argument type.  */
+DIRECT_BUILTIN (aes32dsi, RISCV_SI_FTYPE_SI_SI, crypto_zknd32),
+DIRECT_BUILTIN (aes32dsmi, RISCV_SI_FTYPE_SI_SI, crypto_zknd32),
+DIRECT_BUILTIN (aes32esi, RISCV_SI_FTYPE_SI_SI, crypto_zkne32),
+DIRECT_BUILTIN (aes32esmi, RISCV_SI_FTYPE_SI_SI, crypto_zkne32),
 
-DEF_RISCV_FTYPE (0, (USI))
-DEF_RISCV_FTYPE (1, (VOID, USI))
-DEF_RISCV_FTYPE (2, (SI, SI, SI))
+DIRECT_BUILTIN (aes64ds, RISCV_SI_FTYPE_SI_SI, crypto_zknd64),
+DIRECT_BUILTIN (aes64dsm, RISCV_SI_FTYPE_SI_SI, crypto_zknd64),
+DIRECT_BUILTIN (aes64es, RISCV_SI_FTYPE_SI_SI, crypto_zkne64),
+DIRECT_BUILTIN (aes64esm, RISCV_SI_FTYPE_SI_SI, crypto_zkne64),
