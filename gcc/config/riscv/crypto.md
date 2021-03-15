@@ -20,37 +20,37 @@
 ;; AES32
 
 (define_insn "riscv_aes32dsi"
-  [(set (match_operand 0 "register_operand" "=r")
-    (unspec 
-      [(match_operand 1 "register_operand" "r")
-	      (match_operand 2 "immediate_operand" "")]
+  [(set (match_operand:SI 0 "register_operand" "=r")
+    (unspec
+      [(match_operand:SI 1 "register_operand" "r")
+        (match_operand:SI 2 "immediate_operand" "")]
         UNSPEC_CRYPTO))]
   "TARGET_ZKND && !TARGET_64BIT"
   "aes32dsi\t%0,%1,%2")
 
 (define_insn "riscv_aes32dsmi"
-  [(set (match_operand 0 "register_operand" "=r")
-    (unspec 
-      [(match_operand 1 "register_operand" "r")
-	      (match_operand 2 "immediate_operand" "")]
+  [(set (match_operand:SI 0 "register_operand" "=r")
+    (unspec
+      [(match_operand:SI 1 "register_operand" "r")
+        (match_operand:SI 2 "immediate_operand" "")]
         UNSPEC_CRYPTO))]
   "TARGET_ZKND && !TARGET_64BIT"
   "aes32dsmi\t%0,%1,%2")
 
 (define_insn "riscv_aes32esi"
-  [(set (match_operand 0 "register_operand" "=r")
-    (unspec 
-      [(match_operand 1 "register_operand" "r")
-	      (match_operand 2 "immediate_operand" "")]
+  [(set (match_operand:SI 0 "register_operand" "=r")
+    (unspec
+      [(match_operand:SI 1 "register_operand" "r")
+        (match_operand:SI 2 "immediate_operand" "")]
         UNSPEC_CRYPTO))]
   "TARGET_ZKNE && !TARGET_64BIT"
   "aes32esi\t%0,%1,%2")
 
 (define_insn "riscv_aes32esmi"
-  [(set (match_operand 0 "register_operand" "=r")
-    (unspec 
-      [(match_operand 1 "register_operand" "r")
-	      (match_operand 2 "immediate_operand" "")]
+  [(set (match_operand:SI 0 "register_operand" "=r")
+    (unspec
+      [(match_operand:SI 1 "register_operand" "r")
+        (match_operand:SI 2 "immediate_operand" "")]
         UNSPEC_CRYPTO))]
   "TARGET_ZKNE && !TARGET_64BIT"
   "aes32esmi\t%0,%1,%2")
@@ -59,37 +59,63 @@
 ;; AES64
 
 (define_insn "riscv_aes64ds"
-  [(set (match_operand 0 "register_operand" "=r")
-    (unspec 
-      [(match_operand 1 "register_operand" "r")
-	      (match_operand 2 "immediate_operand" "")]
+  [(set (match_operand:DI 0 "register_operand" "=r")
+    (unspec
+      [(match_operand:DI 1 "register_operand" "r")
+        (match_operand:DI 2 "register_operand" "r")]
         UNSPEC_CRYPTO))]
   "TARGET_ZKND && TARGET_64BIT"
   "aes64ds\t%0,%1,%2")
 
 (define_insn "riscv_aes64dsm"
-  [(set (match_operand 0 "register_operand" "=r")
-    (unspec 
-      [(match_operand 1 "register_operand" "r")
-	      (match_operand 2 "immediate_operand" "")]
+  [(set (match_operand:DI 0 "register_operand" "=r")
+    (unspec
+      [(match_operand:DI 1 "register_operand" "r")
+        (match_operand:DI 2 "register_operand" "r")]
         UNSPEC_CRYPTO))]
   "TARGET_ZKND && TARGET_64BIT"
   "aes64dsm\t%0,%1,%2")
 
 (define_insn "riscv_aes64es"
-  [(set (match_operand 0 "register_operand" "=r")
-    (unspec 
-      [(match_operand 1 "register_operand" "r")
-	      (match_operand 2 "immediate_operand" "")]
+  [(set (match_operand:DI 0 "register_operand" "=r")
+    (unspec
+      [(match_operand:DI 1 "register_operand" "r")
+        (match_operand:DI 2 "register_operand" "r")]
         UNSPEC_CRYPTO))]
   "TARGET_ZKNE && TARGET_64BIT"
   "aes64es\t%0,%1,%2")
 
 (define_insn "riscv_aes64esm"
-  [(set (match_operand 0 "register_operand" "=r")
-    (unspec 
-      [(match_operand 1 "register_operand" "r")
-	      (match_operand 2 "immediate_operand" "")]
+  [(set (match_operand:DI 0 "register_operand" "=r")
+    (unspec
+      [(match_operand:DI 1 "register_operand" "r")
+        (match_operand:DI 2 "register_operand" "r")]
         UNSPEC_CRYPTO))]
   "TARGET_ZKNE && TARGET_64BIT"
   "aes64esm\t%0,%1,%2")
+
+(define_insn "riscv_aes64im"
+  [(set (match_operand:DI 0 "register_operand" "=r")
+    (unspec
+      [(match_operand:DI 1 "register_operand" "r")]
+        UNSPEC_CRYPTO))]
+  "TARGET_ZKND && TARGET_64BIT"
+  "aes64im\t%0,%1")
+
+(define_insn "riscv_aes64ks1i"
+  [(set (match_operand:DI 0 "register_operand" "=r")
+    (unspec
+      [(match_operand:DI 1 "register_operand" "r")
+        (match_operand:DI 2 "immediate_operand" "")]
+        UNSPEC_CRYPTO))]
+  "TARGET_ZKNE && TARGET_64BIT"
+  "aes64ks1i\t%0,%1,%2")
+
+(define_insn "riscv_aes64ks2"
+  [(set (match_operand:DI 0 "register_operand" "=r")
+    (unspec
+      [(match_operand:DI 1 "register_operand" "r")
+        (match_operand:DI 2 "register_operand" "r")]
+        UNSPEC_CRYPTO))]
+  "TARGET_ZKNE && TARGET_64BIT"
+  "aes64ks2\t%0,%1,%2")
