@@ -88,10 +88,20 @@ struct riscv_builtin_description {
 
 AVAIL (hard_float, TARGET_HARD_FLOAT)
 
-AVAIL (crypto_zknd32, !TARGET_64BIT && TARGET_ZKND)
-AVAIL (crypto_zkne32, !TARGET_64BIT && TARGET_ZKNE)
-AVAIL (crypto_zknd64, TARGET_64BIT && TARGET_ZKND)
-AVAIL (crypto_zkne64, TARGET_64BIT && TARGET_ZKNE)
+AVAIL (crypto_zknd32, TARGET_ZKND && !TARGET_64BIT)
+AVAIL (crypto_zknd64, TARGET_ZKND && TARGET_64BIT)
+AVAIL (crypto_zkne32, TARGET_ZKNE && !TARGET_64BIT)
+AVAIL (crypto_zkne64, TARGET_ZKNE && TARGET_64BIT)
+AVAIL (crypto_zknh32, TARGET_ZKNH && !TARGET_64BIT)
+AVAIL (crypto_zknh64, TARGET_ZKNH && TARGET_64BIT)
+
+AVAIL (crypto_zksh32, TARGET_ZKSH && !TARGET_64BIT)
+AVAIL (crypto_zksh64, TARGET_ZKSH && TARGET_64BIT)
+AVAIL (crypto_zksed32, TARGET_ZKSED && !TARGET_64BIT)
+AVAIL (crypto_zksed64, TARGET_ZKSED && TARGET_64BIT)
+
+AVAIL (crypto_zkr32, TARGET_ZKR && !TARGET_64BIT)
+AVAIL (crypto_zkr64, TARGET_ZKR && TARGET_64BIT)
 
 /* Construct a riscv_builtin_description from the given arguments.
 
