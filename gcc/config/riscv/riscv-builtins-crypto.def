@@ -66,7 +66,7 @@ DIRECT_BUILTIN (sm4ks_32, RISCV_SI_FTYPE_SI_SI, crypto_zksed32),
 DIRECT_BUILTIN (sm4ks_64, RISCV_DI_FTYPE_DI_SI, crypto_zksed64),
 
 // ZKR
-// DIRECT_BUILTIN (pollentropy_32, RISCV_SI_FTYPE, crypto_zkr32),
-// DIRECT_BUILTIN (pollentropy_64, RISCV_DI_FTYPE, crypto_zkr64),
-// DIRECT_BUILTIN (getnoise_32, RISCV_SI_FTYPE, crypto_zkr32),
-// DIRECT_BUILTIN (getnoise_64, RISCV_DI_FTYPE, crypto_zkr64),
+DIRECT_BUILTIN (pollentropy_32, RISCV_SI_FTYPE, crypto_zkr32),
+DIRECT_BUILTIN (pollentropy_64, RISCV_DI_FTYPE, crypto_zkr64),
+DIRECT_BUILTIN (getnoise_32, RISCV_SI_FTYPE, crypto_zkr32),
+DIRECT_BUILTIN (getnoise_64, RISCV_DI_FTYPE, crypto_zkr64),

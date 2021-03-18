@@ -353,24 +353,24 @@
   "sm4ks\t%0,%1,%2")
 
 
-; ;; ZKR
+;; ZKR
 
-; (define_insn "riscv_pollentropy_32"
-;   [(set (match_operand:SI 0 "register_operand" "=r"))]
-;   "TARGET_ZKR && !TARGET_64BIT"
-;   "pollentropy\t%0")
+(define_insn "riscv_pollentropy_32"
+  [(clobber (match_operand:SI 0 "register_operand" "=r"))]
+  "TARGET_ZKR && !TARGET_64BIT"
+  "pollentropy\t%0")
 
-; (define_insn "riscv_getnoise_32"
-;   [(set (match_operand:SI 0 "register_operand" "=r"))]
-;   "TARGET_ZKR && !TARGET_64BIT"
-;   "getnoise\t%0")
+(define_insn "riscv_getnoise_32"
+  [(clobber (match_operand:SI 0 "register_operand" "=r"))]
+  "TARGET_ZKR && !TARGET_64BIT"
+  "getnoise\t%0")
 
-; (define_insn "riscv_pollentropy_64"
-;   [(set (match_operand:DI 0 "register_operand" "=r"))]
-;   "TARGET_ZKR && TARGET_64BIT"
-;   "pollentropy\t%0")
+(define_insn "riscv_pollentropy_64"
+  [(clobber (match_operand:DI 0 "register_operand" "=r"))]
+  "TARGET_ZKR && TARGET_64BIT"
+  "pollentropy\t%0")
 
-; (define_insn "riscv_getnoise_64"
-;   [(set (match_operand:DI 0 "register_operand" "=r"))]
-;   "TARGET_ZKR && TARGET_64BIT"
-;   "getnoise\t%0")
+(define_insn "riscv_getnoise_64"
+  [(clobber (match_operand:DI 0 "register_operand" "=r"))]
+  "TARGET_ZKR && TARGET_64BIT"
+  "getnoise\t%0")
