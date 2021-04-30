@@ -1,26 +1,26 @@
 /* { dg-do compile } */
-/* { dg-options "-march=rv64_zknh -mabi=lp64 -O2" } */
+/* { dg-options "-march=rv64i_zknh -mabi=lp64 -O2" } */
 
-int aes64es()
+long aes64es(long rs1, long rs2)
 {
-    return __builtin_riscv_aes64es();
+    return _rv64_aes64es(rs1, rs2);
 }
 
-int aes64esm()
+long aes64esm(long rs1, long rs2)
 {
-    return __builtin_riscv_aes64esm();
+    return _rv64_aes64esm(rs1, rs2);
 }
 
-int aes64ks1i()
+long aes64ks1i(long rs1, int rcon)
 {
-    return __builtin_riscv_aes64ks1i();
+    return _rv64_aes64ks1i(rs1, rcon);
 }
 
-int aes64ks2()
+long aes64ks2(long rs1, long rs2)
 {
-    return __builtin_riscv_aes64ks1i();
+    return _rv64_aes64ks2(rs1, rs2);
 }
-/* { dg-final { scan-assembler-times "aes64es\t%0,%1,%2" 1 } } */
-/* { dg-final { scan-assembler-times "aes64esm\t%0,%1,%2" 1 } } */
-/* { dg-final { scan-assembler-times "aes64ks1i\t%0,%1,%2" 1 } } */
-/* { dg-final { scan-assembler-times "aes64ks2\t%0,%1,%2" 1 } } */
+/* { dg-final { scan-assembler-times "aes64es	%0, %1, %2" 1 } } */
+/* { dg-final { scan-assembler-times "aes64esm	%0, %1, %2" 1 } } */
+/* { dg-final { scan-assembler-times "aes64ks1i	%0, %1, %2" 1 } } */
+/* { dg-final { scan-assembler-times "aes64ks2	%0, %1, %2" 1 } } */

@@ -1,27 +1,27 @@
 /* { dg-do compile { target { riscv64*-*-* } } } */
-/* { dg-options "-march=rv64_zknh -mabi=lp64 -O2" } */
+/* { dg-options "-march=rv64i_zknh -mabi=lp64 -O2" } */
 
-int sha256sig0()
+long sha256sig0(long rs1)
 {
-    return __builtin_riscv_sha256sig0();
+    return _rv_sha256sig0(rs1);
 }
 
-int sha256sig1()
+long sha256sig1(long rs1)
 {
-    return __builtin_riscv_sha256sig1();
+    return _rv_sha256sig1(rs1);
 }
 
-int sha256sum0()
+long sha256sum0(long rs1)
 {
-    return __builtin_riscv_sha256sum0();
+    return _rv_sha256sum0();
 }
 
-int sha256sum1()
+long sha256sum1(long rs1)
 {
-    return __builtin_riscv_sha256sum1();
+    return _rv_sha256sum1();
 }
 
-/* { dg-final { scan-assembler-times "sha256sig0\t%0,%1" 1 } } */
-/* { dg-final { scan-assembler-times "sha256sig1\t%0,%1" 1 } } */
-/* { dg-final { scan-assembler-times "sha256sum0\t%0,%1" 1 } } */
-/* { dg-final { scan-assembler-times "sha256sum1\t%0,%1" 1 } } */
+/* { dg-final { scan-assembler-times "sha256sig0	%0, %1" 1 } } */
+/* { dg-final { scan-assembler-times "sha256sig1	%0, %1" 1 } } */
+/* { dg-final { scan-assembler-times "sha256sum0	%0, %1" 1 } } */
+/* { dg-final { scan-assembler-times "sha256sum1	%0, %1" 1 } } */
