@@ -1,16 +1,16 @@
 /* { dg-do compile } */
-/* { dg-options "-march=rv64_zksh -mabi=lp64 -O2" } */
+/* { dg-options "-march=rv64i_zksh -mabi=lp64 -O2" } */
 
-int sm3p0()
+long sm3p0(long rs1)
 {
-    return __builtin_riscv_sm3p0();
+    return _rv_sm3p0(rs1);
 }
 
-int sm3p1()
+long sm3p1(long rs1)
 {
-    return __builtin_riscv_sm3p1();
+    return _rv_sm3p1(rs1);
 }
 
 
-/* { dg-final { scan-assembler-times "sm3p0\t%0,%1" 1 } } */
-/* { dg-final { scan-assembler-times "sm3p0\t%0,%1" 1 } } */
+/* { dg-final { scan-assembler-times "sm3p0	%0, %1" 1 } } */
+/* { dg-final { scan-assembler-times "sm3p1	%0, %1" 1 } } */

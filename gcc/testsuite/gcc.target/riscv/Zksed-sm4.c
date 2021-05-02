@@ -1,16 +1,16 @@
 /* { dg-do compile } */
-/* { dg-options "-march=rv64_zksed -mabi=lp64 -O2" } */
+/* { dg-options "-march=rv64i_zksed -mabi=lp64 -O2" } */
 
-int sm4ed()
+long sm4ed(long rs1, long rs2, unsigned char bs)
 {
-    return __builtin_riscv_sm4ed();
+    return _rv_sm4ed(rs1, rs2, bs);
 }
 
-int sm4ks()
+long sm4ks(long rs1, long rs2, unsigned char bs)
 {
-    return __builtin_riscv_sm4ks();
+    return _rv_sm4ks(rs1, rs2, bs);
 }
 
 
-/* { dg-final { scan-assembler-times "sm4ed\t%0,%1,%2" 1 } } */
-/* { dg-final { scan-assembler-times "sm4ks\t%0,%1,%2" 1 } } */
+/* { dg-final { scan-assembler-times "sm4ed	%0, %1, %2" 1 } } */
+/* { dg-final { scan-assembler-times "sm4ks	%0, %1, %2" 1 } } */
