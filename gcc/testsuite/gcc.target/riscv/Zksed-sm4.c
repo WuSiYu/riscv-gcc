@@ -1,6 +1,6 @@
 /* { dg-do compile } */
 /* { dg-options "-march=rv64i_zksed -mabi=lp64 -O2" } */
-
+#include <rvkintrin.h>
 long sm4ed(long rs1, long rs2, unsigned char bs)
 {
     return _rv_sm4ed(rs1, rs2, bs);

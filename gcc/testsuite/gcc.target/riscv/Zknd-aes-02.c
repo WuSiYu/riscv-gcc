@@ -1,6 +1,6 @@
 /* { dg-do compile } */
 /* { dg-options "-march=rv64i_zknd -mabi=lp64 -O2" } */
-
+#include <rvkintrin.h>
 long aes64ds(long rs1, long rs2)
 {
     return _rv64_aes64ds(rs1, rs2);

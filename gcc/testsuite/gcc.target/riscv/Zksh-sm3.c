@@ -1,6 +1,6 @@
 /* { dg-do compile } */
 /* { dg-options "-march=rv64i_zksh -mabi=lp64 -O2" } */
-
+#include <rvkintrin.h>
 long sm3p0(long rs1)
 {
     return _rv_sm3p0(rs1);

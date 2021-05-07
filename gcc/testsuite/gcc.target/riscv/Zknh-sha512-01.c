@@ -1,6 +1,6 @@
 /* { dg-do compile } */
 /* { dg-options "-march=rv32i_zknh -mabi=lp32 -O2" } */
-
+#include <rvkintrin.h>
 int sha512sig0h(int rs1, int rs2)
 {
     return _rv32_sha512sig0h(rs1, rs2);

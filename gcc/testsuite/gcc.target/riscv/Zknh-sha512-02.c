@@ -1,6 +1,6 @@
 /* { dg-do compile } */
 /* { dg-options "-march=rv64i_zknh -mabi=lp64 -O2" } */
-
+#include <rvkintrin.h>
 long sha512sig0(long rs1)
 {
     return _rv64_sha512sig0(rs1);
