@@ -1812,7 +1812,7 @@
 
 (define_insn "fence"
   [(unspec_volatile [(const_int 0)] UNSPECV_FENCE)]
-  ""
+  "TARGET_ZIFENCEI"
   "%|fence%-")
 
 (define_insn "fence_i"
