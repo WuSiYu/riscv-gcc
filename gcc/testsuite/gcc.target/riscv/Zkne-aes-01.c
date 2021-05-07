@@ -1,6 +1,6 @@
 /* { dg-do compile } */
 /* { dg-options "-march=rv32i_zkne -mabi=lp32 -O2" } */
-
+#include <rvkintrin.h>
 int aes32esi(int rs1, int rs2, unsigned char bs)
 {
     return _rv32_aes32esi(rs1, rs2, bs);

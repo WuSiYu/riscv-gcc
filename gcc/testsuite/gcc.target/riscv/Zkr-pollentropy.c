@@ -1,6 +1,6 @@
 /* { dg-do compile } */
 /* { dg-options "-march=rv64i_zkr -mabi=lp64 -O2" } */
-
+#include <rvkintrin.h>
 long pollentropy()
 {
     return _rv_pollentropy();
