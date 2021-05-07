@@ -13,12 +13,12 @@ long sha256sig1(long rs1)
 
 long sha256sum0(long rs1)
 {
-    return _rv_sha256sum0();
+    return _rv_sha256sum0(rs1);
 }
 
 long sha256sum1(long rs1)
 {
-    return _rv_sha256sum1();
+    return _rv_sha256sum1(rs1);
 }
 
 /* { dg-final { scan-assembler-times "sha256sig0	%0, %1" 1 } } */
