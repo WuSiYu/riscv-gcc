@@ -1,15 +1,15 @@
 /* { dg-do compile } */
-/* { dg-options "-march=rv64i_zkr -mabi=lp64 -O2" } */
-#include <rvkintrin.h>
-long pollentropy()
+/* { dg-options "-march=rv64gc_zkr -mabi=lp64 -O2" } */
+
+long foo1()
 {
-    return _rv_pollentropy();
+    return __builtin_riscv_pollentropy();
 }
 
-long getnoise()
+long foo2()
 {
-    return _rv_pollentropy();
+    return __builtin_riscv_getnoise();
 }
 
-/* { dg-final { scan-assembler-times "pollentropy %0" 1 } } */
-/* { dg-final { scan-assembler-times "getnoise %0" 1 } } */
+/* { dg-final { scan-assembler-times "pollentropy" 1 } } */
+/* { dg-final { scan-assembler-times "getnoise" 1 } } */

@@ -1,16 +1,17 @@
 /* { dg-do compile } */
 /* { dg-options "-march=rv64i_zksed -mabi=lp64 -O2" } */
-#include <rvkintrin.h>
-long sm4ed(long rs1, long rs2, unsigned char bs)
+
+long foo1(long rs1)
 {
-    return _rv_sm4ed(rs1, rs2, bs);
+    return __builtin_riscv_sm4ed(rs1, 1);
 }
 
-long sm4ks(long rs1, long rs2, unsigned char bs)
+long foo2(long rs1)
 {
-    return _rv_sm4ks(rs1, rs2, bs);
+    return __builtin_riscv_sm4ks(rs1, 2);
 }
 
 
-/* { dg-final { scan-assembler-times "sm4ed	%0, %1, %2" 1 } } */
-/* { dg-final { scan-assembler-times "sm4ks	%0, %1, %2" 1 } } */
+
+/* { dg-final { scan-assembler-times "sm4ed" 1 } } */
+/* { dg-final { scan-assembler-times "sm4ks" 1 } } */
