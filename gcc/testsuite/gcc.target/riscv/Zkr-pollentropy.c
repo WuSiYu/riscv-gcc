@@ -11,5 +11,5 @@ long foo2()
     return __builtin_riscv_getnoise();
 }
 
-/* { dg-final { scan-assembler-times "pollentropy" 1 } } */
+/* { dg-final { scan-assembler-times "pollentropy" 2 } } */
 /* { dg-final { scan-assembler-times "getnoise" 1 } } */

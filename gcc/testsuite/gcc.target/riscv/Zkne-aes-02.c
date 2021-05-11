@@ -21,7 +21,7 @@ long foo4(long rs1, long rs2)
     return __builtin_riscv_aes64ks2(rs1, rs2);
 }
 
-/* { dg-final { scan-assembler-times "aes64es" 1 } } */
+/* { dg-final { scan-assembler-times "aes64es" 2 } } */
 /* { dg-final { scan-assembler-times "aes64esm" 1 } } */
 /* { dg-final { scan-assembler-times "aes64ks1i" 1 } } */
 /* { dg-final { scan-assembler-times "aes64ks2" 1 } } */

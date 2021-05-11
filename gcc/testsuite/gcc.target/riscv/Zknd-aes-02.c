@@ -16,6 +16,6 @@ long foo3(long rs1)
     return __builtin_riscv_aes64im(rs1);
 }
 
-/* { dg-final { scan-assembler-times "aes64ds" 1 } } */
+/* { dg-final { scan-assembler-times "aes64ds" 2 } } */
 /* { dg-final { scan-assembler-times "aes64dsm" 1 } } */
 /* { dg-final { scan-assembler-times "aes64im" 1 } } */
