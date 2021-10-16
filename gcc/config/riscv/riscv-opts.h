@@ -83,4 +83,10 @@ enum stack_protector_guard {
 #define TARGET_ZBC    ((riscv_zb_subext & MASK_ZBC) != 0)
 #define TARGET_ZBS    ((riscv_zb_subext & MASK_ZBS) != 0)
 
+#define MASK_ZKNE     (1 << 5)
+#define MASK_ZKND     (1 << 6)
+
+#define TARGET_ZKNE   ((riscv_zk_subext & MASK_ZKNE) != 0)
+#define TARGET_ZKND   ((riscv_zk_subext & MASK_ZKND) != 0)
+
 #endif /* ! GCC_RISCV_OPTS_H */
