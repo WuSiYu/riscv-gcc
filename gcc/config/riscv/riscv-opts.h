@@ -64,7 +64,13 @@ enum riscv_align_data {
 #define MASK_ZICSR    (1 << 0)
 #define MASK_ZIFENCEI (1 << 1)
 
+#define MASK_ZKNE     (1 << 5)
+#define MASK_ZKND     (1 << 6)
+
 #define TARGET_ZICSR    ((riscv_zi_subext & MASK_ZICSR) != 0)
 #define TARGET_ZIFENCEI ((riscv_zi_subext & MASK_ZIFENCEI) != 0)
+
+#define TARGET_ZKNE  ((riscv_crypto_subext & MASK_ZKNE) != 0)
+#define TARGET_ZKND  ((riscv_crypto_subext & MASK_ZKND) != 0)
 
 #endif /* ! GCC_RISCV_OPTS_H */
