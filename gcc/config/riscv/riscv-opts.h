@@ -64,6 +64,9 @@ enum riscv_align_data {
 #define MASK_ZICSR    (1 << 0)
 #define MASK_ZIFENCEI (1 << 1)
 
+#define MASK_ZBKB     (1 << 2)
+#define MASK_ZBKC     (1 << 3)
+#define MASK_ZBKX     (1 << 4)
 #define MASK_ZKNE     (1 << 5)
 #define MASK_ZKND     (1 << 6)
 #define MASK_ZKNH     (1 << 7)
@@ -75,6 +78,9 @@ enum riscv_align_data {
 #define TARGET_ZICSR    ((riscv_zi_subext & MASK_ZICSR) != 0)
 #define TARGET_ZIFENCEI ((riscv_zi_subext & MASK_ZIFENCEI) != 0)
 
+#define TARGET_ZBKB  ((riscv_crypto_subext & MASK_ZBKB) != 0)
+#define TARGET_ZBKC  ((riscv_crypto_subext & MASK_ZBKC) != 0)
+#define TARGET_ZBKX  ((riscv_crypto_subext & MASK_ZBKX) != 0)
 #define TARGET_ZKNE  ((riscv_crypto_subext & MASK_ZKNE) != 0)
 #define TARGET_ZKND  ((riscv_crypto_subext & MASK_ZKND) != 0)
 #define TARGET_ZKNH  ((riscv_crypto_subext & MASK_ZKNH) != 0)
