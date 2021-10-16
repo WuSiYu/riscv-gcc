@@ -38,6 +38,8 @@
   UNSPEC_SHA_512_SIG1_2
   UNSPEC_SHA_512_SUM0
   UNSPEC_SHA_512_SUM1
+  UNSPEC_SM4_ED
+  UNSPEC_SM4_KS
 ])
 
 
@@ -249,4 +251,23 @@
                    UNSPEC_SHA_512_SUM1))]
   "TARGET_ZKNH && TARGET_64BIT"
   "sha512sum1\t%0,%1")
+
+
+;; Zksed - SM4
+
+(define_insn "riscv_sm4ed_<mode>"
+  [(set (match_operand:X 0 "register_operand" "=r")
+        (unspec:X [(match_operand:X 1 "register_operand" "r")
+                  (match_operand:SI 2 "immediate_operand" "")]
+                  UNSPEC_SM4_ED))]
+  "TARGET_ZKSED"
+  "sm4ed\t%0,%1,%2")
+
+(define_insn "riscv_sm4ks_<mode>"
+  [(set (match_operand:X 0 "register_operand" "=r")
+        (unspec:X [(match_operand:X 1 "register_operand" "r")
+                  (match_operand:SI 2 "immediate_operand" "")]
+                  UNSPEC_SM4_KS))]
+  "TARGET_ZKSED"
+  "sm4ks\t%0,%1,%2")
 
