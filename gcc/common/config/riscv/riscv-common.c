@@ -109,6 +109,7 @@ static const struct riscv_ext_version riscv_ext_version_table[] =
   {"zkne",  ISA_SPEC_CLASS_NONE, 1, 0},
   {"zknd",  ISA_SPEC_CLASS_NONE, 1, 0},
   {"zknh",  ISA_SPEC_CLASS_NONE, 1, 0},
+  {"zksed", ISA_SPEC_CLASS_NONE, 1, 0},
 
   /* Terminate the list.  */
   {NULL, ISA_SPEC_CLASS_NONE, 0, 0}
@@ -923,6 +924,7 @@ static const riscv_ext_flag_table_t riscv_ext_flag_table[] =
   {"zknd",   &gcc_options::x_riscv_zk_subext, MASK_ZKND},
   {"zkne",   &gcc_options::x_riscv_zk_subext, MASK_ZKNE},
   {"zknh",   &gcc_options::x_riscv_zk_subext, MASK_ZKNH},
+  {"zksed",  &gcc_options::x_riscv_zk_subext, MASK_ZKSED},
 
   {NULL, NULL, 0}
 };
