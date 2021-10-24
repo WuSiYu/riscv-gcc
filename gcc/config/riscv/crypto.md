@@ -42,6 +42,10 @@
   UNSPEC_SM3_P1
   UNSPEC_SM4_ED
   UNSPEC_SM4_KS
+
+  ;; Zbkx unspecs, see below
+  UNSPEC_XPERM8
+  UNSPEC_XPERM4
 ])
 
 
@@ -289,4 +293,27 @@
                   UNSPEC_SM4_KS))]
   "TARGET_ZKSED"
   "sm4ks\t%0,%1,%2")
+
+;; Zbkx
+
+;; The Zbkx should be implemented in bitmanip's Zbp, but since zbp is not
+;; included in the bitmanip spec v1.0, and crypto's v1.0 release will earlier
+;; than bitmanip's next release, so for now we implementing it here.
+;;                                                                   2021/10/24
+
+(define_insn "riscv_xperm8_<mode>"
+  [(set (match_operand:X 0 "register_operand" "=r")
+        (unspec:X [(match_operand:X 1 "register_operand" "r")
+                  (match_operand:X 2 "register_operand" "r")]
+                  UNSPEC_XPERM8))]
+  "TARGET_ZBKX"
+  "xperm8\t%0,%1,%2")
+
+(define_insn "riscv_xperm4_<mode>"
+  [(set (match_operand:X 0 "register_operand" "=r")
+        (unspec:X [(match_operand:X 1 "register_operand" "r")
+                  (match_operand:X 2 "register_operand" "r")]
+                  UNSPEC_XPERM4))]
+  "TARGET_ZBKX"
+  "xperm4\t%0,%1,%2")
 
